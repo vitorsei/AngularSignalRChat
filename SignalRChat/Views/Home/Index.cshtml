@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-sm-4"><h3 class="panel-title">Real Time Chat</h3></div>
                 <div class="col-sm-8">
-                    <input ng-hide="inRoom" ng-model="roomName" type="text" class="form-control input-sm pull-left" stye="width: 60%" placeholder="room" autofocus />
+                    <input ng-hide="inRoom" ng-model="roomName" type="text" class="form-control input-sm pull-left" style="width:60%" placeholder="room" autofocus />
                     <button ng-hide="inRoom" ng-click="joinRoom()" class="btn btn-primary btn-sm pull-right">Join Room</button>
                     <button ng-show="inRoom" ng-click="leaveRoom()" class="btn btn-warning btn-sm pull-right">Leave Room</button>
                 </div>
@@ -24,7 +24,7 @@
                 <input ng-show="nameSet" ng-model="newMessage" class="form-control input-sm pull-left" style="width:80%" type="text" placeholder="chat message" />
                 <button ng-show="nameSet" ng-click="sendMessage()" class="pull-right btn btn-primary btn-sm">Send</button>
                 <input ng-hide="nameSet" ng-model="name" class="form-control input-sm pull-left" style="width:80%" type="text" placeholder="your name" />
-                <button ng-hide="nameSet" ng-click="setName()" class="pull-right btn btn-primary btn-sm" >Set</button>
+                <button ng-hide="nameSet" ng-click="setName()" class="pull-right btn btn-primary btn-sm">Set</button>
             </div>
 
         </div>
