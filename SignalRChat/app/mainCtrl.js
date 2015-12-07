@@ -20,12 +20,19 @@
 
     $scope.sendMessage = function () {
         chat.server.sendMessage({ name: $scope.name, message: $scope.newMessage, roomName: $scope.roomName });
+        displayMessage("You: " + $scope.newMessage);
         $scope.newMessage = "";
     };
 
-    chat.client.newMessage = function onNewMessage(message) {
-        $scope.messages.push({ message: message });
+    chat.client.newMessage = onNewMessage;
+
+    function onNewMessage(message) {
+        displayMessage(message);
         $scope.$apply();
         console.log(message);
+    };
+
+    function displayMessage(message) {
+        $scope.messages.push({ message: message });
     };
 });

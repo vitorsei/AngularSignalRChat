@@ -8,7 +8,7 @@ namespace SignalRChat
     {
         public void SendMessage(SendData data)
         {
-            Clients.Group(data.roomName).newMessage(data.name + ": " + data.message);
+            Clients.Group(data.roomName, Context.ConnectionId).newMessage(data.name + ": " + data.message);
         }
 
         public void JoinRoom(string roomName)
