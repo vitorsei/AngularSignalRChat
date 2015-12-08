@@ -14,7 +14,7 @@
                         <option value="students">Students</option>
                         <option value="teachers">Teachers</option>
                     </select>
-                    <button ng-hide="inRoom" ng-click="joinRoom()" class="btn btn-primary btn-sm pull-right">Join Room</button>
+                    <button ng-disabled="!roomName" ng-hide="inRoom" ng-click="joinRoom()" class="btn btn-primary btn-sm pull-right">Join Room</button>
                     <button ng-show="inRoom" ng-click="leaveRoom()" class="btn btn-warning btn-sm pull-right">Leave Room</button>
                 </div>
             </div>
