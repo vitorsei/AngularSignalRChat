@@ -10,5 +10,7 @@
         console.log('An error occurred: ' + err);
     });
 
-    angular.module('app').value('chat', $.connection.chat);
+    angular.module('app')
+        .value('chat', $.connection.chat)
+        .value('toastr', toastr);
 })();
