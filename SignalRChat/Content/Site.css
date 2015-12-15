@@ -19,3 +19,7 @@ DIV.scrollable {
     padding: 10px;
     background-color:#1e1b1b;
 }
+
+.modal-dialog{
+    margin-top: 125px;
+}

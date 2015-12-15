@@ -3,34 +3,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <div style="width:450px" ng-controller="mainCtrl">
-    <div class="panel panel-info" style="margin-top:30px; margin-left:20px">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-sm-4"><h3 class="panel-title">Real Time Chat</h3></div>
-                <div class="col-sm-8">
-                    <select ng-model="roomName" class="form-control input-sm pull-left" style="color:black; width:60%">
-                        <option selected value="">Select a Room</option>
-                        <option value="students">Students</option>
-                        <option value="teachers">Teachers</option>
-                    </select>
-                    <button ng-disabled="!roomName" ng-hide="inRoom" ng-click="joinRoom()" class="btn btn-primary btn-sm pull-right">Join Room</button>
-                    <button ng-show="inRoom" ng-click="leaveRoom()" class="btn btn-warning btn-sm pull-right">Leave Room</button>
+    <form name="nameForm">
+        <fieldset>
+            <div class="modal-backdrop fade  in" ng-hide="nameSet">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Welcome to Real Time Chat</h3>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="alert">
+                                <input required ng-hide="nameSet" ng-model="name" class="form-control pull-left" type="text" placeholder="Please set your name" />
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button ng-disabled="nameForm.$invalid" ng-click="setName()" class=" btn btn-success">Set</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="panel-body">
-            <div class="scrollable">
-                <div ng-repeat="msg in messages">{{msg.message}}</div>
+        </fieldset>
+    </form>
+        <div class="panel panel-info" style="margin-top:30px; margin-left:20px">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-4"><h3 class="panel-title">Real Time Chat</h3></div>
+                    <div class="col-sm-8">
+                        <select ng-model="roomName" class="form-control input-sm pull-left" style="color:black; width:60%">
+                            <option selected value="">Select a Room</option>
+                            <option value="students">Students</option>
+                            <option value="teachers">Teachers</option>
+                        </select>
+                        <button ng-disabled="!roomName" ng-hide="inRoom" ng-click="joinRoom()" class="btn btn-primary btn-sm pull-right">Join Room</button>
+                        <button ng-show="inRoom" ng-click="leaveRoom()" class="btn btn-warning btn-sm pull-right">Leave Room</button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <input ng-show="nameSet" ng-model="newMessage" class="form-control input-sm pull-left" style="width:80%" type="text" placeholder="chat message" />
-                <button ng-show="nameSet" ng-click="sendMessage()" class="pull-right btn btn-primary btn-sm">Send</button>
-                <input ng-hide="nameSet" ng-model="name" class="form-control input-sm pull-left" style="width:80%" type="text" placeholder="your name" />
-                <button ng-hide="nameSet" ng-click="setName()" class="pull-right btn btn-primary btn-sm">Set</button>
-            </div>
 
+            <div class="panel-body">
+                <div class="scrollable">
+                    <div ng-repeat="msg in messages">{{msg.message}}</div>
+                </div>
+                <div>
+                    <input ng-show="nameSet" ng-model="newMessage" class="form-control input-sm pull-left" style="width:80%" type="text" placeholder="chat message" />
+                    <button ng-show="nameSet" ng-click="sendMessage()" class="pull-right btn btn-primary btn-sm">Send</button>
+                </div>
+
+            </div>
         </div>
-    </div>
 </div>
